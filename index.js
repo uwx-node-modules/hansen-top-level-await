@@ -1,6 +1,10 @@
 const Module = require('module').Module;
-const wrap   = Module.wrap;
+const wrap = Module.wrap;
 
 Module.wrap = function() {
-  return wrap.apply(Module, arguments).replace(/^\(function/, '(async function');
+  let wrapped = wrap.apply(Module, arguments);
+  if (/^[ \t]*['"]use ext$1;/m.test(wrapped)) {
+    wrapped = wrapped.replace(/^\(function/, '(async function');
+  }
+  return wrapped;
 }
