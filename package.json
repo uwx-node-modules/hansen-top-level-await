@@ -1,10 +1,10 @@
 {
-  "name": "top-level-await",
-  "version": "1.1.0",
+  "name": "safe-top-level-await",
+  "version": "2.0.0",
   "description": "Use `await` at your code's top-level (without IIFE)",
   "main": "index.js",
-  "repository": "robertklep/top-level-await",
-  "author": "Robert Klep <robert@klep.name>",
+  "repository": "uwx-node-modules/safe-top-level-await",
+  "author": "uwx, Robert Klep <robert@klep.name>",
   "engines": {
     "node": ">=7.6.0"
   },
