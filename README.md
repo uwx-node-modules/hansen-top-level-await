@@ -1,6 +1,6 @@
-# top-level-await (PoC)
+# safe-top-level-await (PoC)
 
-Allow using `await` at your code's top level. Requires Node.js v7.6.0 or higher.
+A safer, slightly more sane version of [robertklep/top-level-await](https://github.com/robertklep/top-level-await). Allows using `await` at your code's top level. Requires Node.js v7.6.0 or higher.
 
 Not this:
 ```
@@ -13,13 +13,14 @@ Not this:
 But this:
 ```
 // 🎉
+'use ext';
 console.log(await Promise.resolve('hello world'));
 ```
 
 ## Installation
 
 ```
-npm i top-level-await
+npm i uwx-node-modules/safe-top-level-await
 ```
 
 ## Usage
@@ -29,21 +30,21 @@ the rest of your code:
 
 ```
 // bootstrap.js
-require('top-level-await');
+require('safe-top-level-await');
 require('./app');
 ```
 
-Inside `app.js`, you can use `await` whenever you like.
+Inside `app.js`, add `'use ext';` and you can use `await` whenever you like.
 
 You can also tell Node to require the module for you, instead of using
 a separate bootstrap script:
 ```
-$ node -r top-level-await app
+$ node -r safe-top-level-await app
 ```
 
 Which works for CLI tools too:
 ```
-#!/usr/bin/env node -r top-level-await
+#!/usr/bin/env node -r safe-top-level-await
 
 console.log( await Promise.resolve('hello world') );
 ```
